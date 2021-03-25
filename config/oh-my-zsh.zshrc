@@ -1,48 +1,21 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# Based on (~/.oh-my-zsh/templates/zshrc.zsh-template)
 
 # If you come from bash you might have to change your $PATH.
-#export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="/usr/local/sbin:$PATH"
-# Java
-export JAVA_HOME="`/usr/libexec/java_home`"
-# Android
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/degete/.oh-my-zsh"
-
-
-export TERM="xterm-256color"
+export ZSH=$ZSH_HOME/oh-my-zsh
+export ZSH_CUSTOM=$ZSH_HOME/oh-my-zsh-custom
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-
-#ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh ip load)
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=202
-POWERLEVEL9K_DIR_HOME_BACKGROUND=202
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND=202
-POWERLEVEL9K_DIR_ETC_BACKGROUND=202
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
@@ -63,7 +36,7 @@ POWERLEVEL9K_DIR_ETC_BACKGROUND=202
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -75,6 +48,8 @@ POWERLEVEL9K_DIR_ETC_BACKGROUND=202
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -94,31 +69,31 @@ POWERLEVEL9K_DIR_ETC_BACKGROUND=202
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
-	osx
-	dotenv
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-	zsh-completions
-	fzf
-	iterm2
-	man
-	npm
-	python
-	django
-	virtualenv
-	tmux
-	composer
-	docker
-	docker-compose
-	kubectl
-	vi-mode
-	z
+  git
+  osx
+  dotenv
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  zsh-completions
+  fzf
+  man
+  iterm2
+  npm
+  python
+  django
+  virtualenv
+  tmux
+  composer
+  docker
+  docker-compose
+  kubectl
+  vi-mode
+  z
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -146,15 +121,5 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-alias ls=exa
-alias cat=ccat
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias zshconfig="editor ~/.zshrc"
+alias ohmyzsh="editor ~/.oh-my-zsh"

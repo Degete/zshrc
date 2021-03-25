@@ -1,0 +1,1 @@
+source ~/.zsh/config/init.zshrc
