@@ -1,5 +1,6 @@
 # Java
 export JAVA_HOME="`/usr/libexec/java_home`"
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 # PHP (Composer)
 export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -10,6 +11,14 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# Rust
+[ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+# Node (Node Version Manager)
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
 
 # DevKitPro
 export DEVKITPRO=/opt/devkitpro
