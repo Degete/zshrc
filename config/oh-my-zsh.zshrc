@@ -80,7 +80,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
   git
-  osx
+  macos
   dotenv
   zsh-syntax-highlighting
   zsh-autosuggestions
@@ -98,7 +98,6 @@ plugins=(
   docker-compose
   kubectl
   rust
-  rustup
   golang
   vi-mode
   z
