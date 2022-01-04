@@ -11,6 +11,7 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+eval "$(rbenv init - zsh)"
 
 # Rust
 [ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
