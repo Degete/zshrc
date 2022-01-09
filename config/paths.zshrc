@@ -1,4 +1,6 @@
 # Java
+# Create symlink
+# sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 export JAVA_HOME="`/usr/libexec/java_home`"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
