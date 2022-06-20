@@ -82,6 +82,7 @@ plugins=(
   git
   macos
   dotenv
+  autoupdate
   zsh-syntax-highlighting
   zsh-autosuggestions
   zsh-completions
