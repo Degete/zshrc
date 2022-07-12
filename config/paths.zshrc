@@ -25,6 +25,11 @@ eval "$(rbenv init - zsh)"
 # Rust
 [ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
+# Golang
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+
 # Node (Node Version Manager)
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
