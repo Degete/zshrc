@@ -5,7 +5,7 @@
 	ignore = all
 [submodule "oh-my-zsh-custom/plugins/autoupdate"]
 	path = oh-my-zsh-custom/plugins/autoupdate
-	url =  https://github.com/TamCore/autoupdate-oh-my-zsh-plugins.git
+	url = https://github.com/TamCore/autoupdate-oh-my-zsh-plugins.git
 	branch = master
 	ignore = all
 [submodule "oh-my-zsh-custom/plugins/zsh-autosuggestions"]
