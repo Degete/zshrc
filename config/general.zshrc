@@ -7,3 +7,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR="$( echo $(which nvim) || echo $(which vim) || echo $(which vi) )"
 fi
+
+# vi-mode cursor
+VI_MODE_SET_CURSOR=true
