@@ -77,31 +77,40 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Load plugins configurations
 [ -f $ZSH_CONFIG/plugins/zsh-autosuggestions.zshrc ] && source $ZSH_CONFIG/plugins/zsh-autosuggestions.zshrc
 [ -f $ZSH_CONFIG/plugins/dotenv.zshrc ] && source $ZSH_CONFIG/plugins/dotenv.zshrc
+[ -f $ZSH_CONFIG/plugins/vimode.zshrc ] && source $ZSH_CONFIG/plugins/vimode.zshrc
 
 plugins=(
-  git
-  macos
+  # Functional plugins
+  copybuffer
+  copyfile
+  copypath
   dotenv
+  iterm2
+  fzf
+  vi-mode
+  zsh-interactive-cd
+  z
+
+  # Aliases plugins
+  macos
+  git
+  npm
+  docker
+  docker-compose
+  kubectl
+  python
+  golang
+  rust
+  tmux
+  terraform
+  vscode
+  yarn
+
+  # External plugins
   autoupdate
   zsh-syntax-highlighting
   zsh-autosuggestions
   zsh-completions
-  zsh-interactive-cd
-  fzf
-  man
-  iterm2
-  npm
-  python
-  virtualenv
-  tmux
-  composer
-  docker
-  docker-compose
-  kubectl
-  rust
-  golang
-  vi-mode
-  z
 )
 
 source $ZSH/oh-my-zsh.sh

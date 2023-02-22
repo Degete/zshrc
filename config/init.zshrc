@@ -20,7 +20,7 @@ GPG_TTY=$TTY # $(tty)
 # Aliases
 [ -f $ZSH_CONFIG/aliases.zshrc ] && source $ZSH_CONFIG/aliases.zshrc
 
-# p10k (To customize prompt, run `p10k configure` or edit ~/.p10k.zsh)
+# p10k (To customize prompt, run `p10k configure` or edit $ZSH_CONFIG/p10k/p10k.zsh)
 [ -f $ZSH_CONFIG/p10k/p10k.zsh ] && source $ZSH_CONFIG/p10k/p10k.zsh
 
 # Local config
