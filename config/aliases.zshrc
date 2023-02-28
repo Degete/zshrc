@@ -4,8 +4,11 @@ alias ssh="ssh -A"
 which htop > /dev/null \
   && alias top=htop
 
-which exa > /dev/null \
-  && alias ls=exa
+which lsd > /dev/null \
+  && alias ls=lsd
+
+which fs > /dev/null \
+  && alias find=fd
 
 which ccat > /dev/null \
   && alias cat=ccat
