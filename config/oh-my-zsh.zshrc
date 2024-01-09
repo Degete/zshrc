@@ -106,7 +106,6 @@ plugins=(
   yarn
 
   # External plugins
-  autoupdate
   zsh-syntax-highlighting
   zsh-autosuggestions
   zsh-completions

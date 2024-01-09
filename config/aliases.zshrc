@@ -5,7 +5,7 @@ which htop > /dev/null \
   && alias top=htop
 
 which lsd > /dev/null \
-  && alias ls=exa --header --bytes --group --modified --created --extended --git --icons
+  && alias ls=eza --header --bytes --group --modified --created --extended --git --icons
 
 which fs > /dev/null \
   && alias find=fd
