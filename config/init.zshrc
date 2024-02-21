@@ -12,7 +12,10 @@ GPG_TTY=$TTY # $(tty)
 [ -f $ZSH_CONFIG/general.zshrc ] && source $ZSH_CONFIG/general.zshrc
 
 # Oh My Zsh
-[ -f $ZSH_CONFIG/oh-my-zsh.zshrc ] && source $ZSH_CONFIG/oh-my-zsh.zshrc
+# [ -f $ZSH_CONFIG/oh-my-zsh.zshrc ] && source $ZSH_CONFIG/oh-my-zsh.zshrc
+
+# Zinit
+[ -f $ZSH_CONFIG/zinit.zshrc ] && source $ZSH_CONFIG/zinit.zshrc
 
 # Paths
 [ -f $ZSH_CONFIG/paths.zshrc ] && source $ZSH_CONFIG/paths.zshrc
