@@ -137,4 +137,4 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias zshconfig="$EDITOR ~/.zsh/config/"
-alias ohmyzsh="$EDITOR ~/.zsh/config/oh-my-zsh.zshrc"
+alias ohmyzsh="$EDITOR ~/.zsh/config/oh-my-zsh.zsh"

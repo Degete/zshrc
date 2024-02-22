@@ -9,19 +9,19 @@ GPG_TTY=$TTY # $(tty)
 [ -f $ZSH_CONFIG/p10k/p10k-instant-prompt.zsh ] && source $ZSH_CONFIG/p10k/p10k-instant-prompt.zsh
 
 # General
-[ -f $ZSH_CONFIG/general.zshrc ] && source $ZSH_CONFIG/general.zshrc
+[ -f $ZSH_CONFIG/general.zsh ] && source $ZSH_CONFIG/general.zsh
 
 # Oh My Zsh
-# [ -f $ZSH_CONFIG/oh-my-zsh.zshrc ] && source $ZSH_CONFIG/oh-my-zsh.zshrc
+# [ -f $ZSH_CONFIG/oh-my-zsh.zsh ] && source $ZSH_CONFIG/oh-my-zsh.zsh
 
 # Zinit
-[ -f $ZSH_CONFIG/zinit.zshrc ] && source $ZSH_CONFIG/zinit.zshrc
+[ -f $ZSH_CONFIG/zinit.zsh ] && source $ZSH_CONFIG/zinit.zsh
 
 # Paths
-[ -f $ZSH_CONFIG/paths.zshrc ] && source $ZSH_CONFIG/paths.zshrc
+[ -f $ZSH_CONFIG/paths.zsh ] && source $ZSH_CONFIG/paths.zsh
 
 # Aliases
-[ -f $ZSH_CONFIG/aliases.zshrc ] && source $ZSH_CONFIG/aliases.zshrc
+[ -f $ZSH_CONFIG/aliases.zsh ] && source $ZSH_CONFIG/aliases.zsh
 
 # p10k (To customize prompt, run `p10k configure` or edit $ZSH_CONFIG/p10k/p10k.zsh)
 [ -f $ZSH_CONFIG/p10k/p10k.zsh ] && source $ZSH_CONFIG/p10k/p10k.zsh
