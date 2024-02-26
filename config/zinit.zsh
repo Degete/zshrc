@@ -48,7 +48,6 @@ zi snippet OMZP::gitignore
 zi snippet OMZP::npm
 zi snippet OMZP::pip
 zi snippet OMZP::rust
-zi snippet OMZP::tmux
 zi snippet OMZP::terraform
 zi snippet OMZP::vscode
 zi snippet OMZP::xcode
