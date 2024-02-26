@@ -18,11 +18,18 @@ zinit snippet $ZSH_CONFIG/plugins/vimode.zsh
 
 # OMZ
 # OMZ Libraries
+zi snippet OMZL::cli.zsh
 zi snippet OMZL::clipboard.zsh
+zi snippet OMZL::compfix.zsh
+zi snippet OMZL::completion.zsh
+zi snippet OMZL::correction.zsh
+zi snippet OMZL::diagnostics.zsh
 zi snippet OMZL::directories.zsh
 zi snippet OMZL::functions.zsh
 zi snippet OMZL::git.zsh
 zi snippet OMZL::grep.zsh
+zi snippet OMZL::history.zsh
+zi snippet OMZL::misc.zsh
 zi snippet OMZL::key-bindings.zsh
 zi snippet OMZL::termsupport.zsh
 # OMZ Plugins (Functional)
