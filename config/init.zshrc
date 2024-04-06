@@ -23,5 +23,8 @@ GPG_TTY=$TTY # $(tty)
 # p10k (To customize prompt, run `p10k configure` or edit $ZSH_CONFIG/p10k/p10k.zsh)
 [ -f $ZSH_CONFIG/p10k/p10k.zsh ] && source $ZSH_CONFIG/p10k/p10k.zsh
 
+# iTerm2 shell integration
+[ -f ${HOME}/.iterm2_shell_integration.zsh ] && source ${HOME}/.iterm2_shell_integration.zsh
+
 # Local config
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
