@@ -2,18 +2,16 @@
 export ZSH_HOME=$HOME/.zsh
 export ZSH_CONFIG=$ZSH_HOME/config
 
-# Set GPG_TTY (before Powerlevel10k instant prompt as it prevents working properly otherwise)
-export GPG_TTY=$TTY # $(tty)
+# General
+[ -f $ZSH_CONFIG/general.zshrc ] && source $ZSH_CONFIG/general.zshrc
 
 # p10k init
 [ -f $ZSH_CONFIG/p10k/p10k-instant-prompt.zsh ] && source $ZSH_CONFIG/p10k/p10k-instant-prompt.zsh
 
+# Paths
 [ -f $ZSH_CONFIG/paths.zshrc ] && source $ZSH_CONFIG/paths.zshrc
 
-# General
-[ -f $ZSH_CONFIG/general.zshrc ] && source $ZSH_CONFIG/general.zshrc
-
-# Oh My Zsh
+# Package manager
 [ -f $ZSH_CONFIG/oh-my-zsh.zshrc ] && source $ZSH_CONFIG/oh-my-zsh.zshrc
 
 # Aliases
@@ -22,8 +20,8 @@ export GPG_TTY=$TTY # $(tty)
 # p10k (To customize prompt, run `p10k configure` or edit $ZSH_CONFIG/p10k/p10k.zsh)
 [ -f $ZSH_CONFIG/p10k/p10k.zsh ] && source $ZSH_CONFIG/p10k/p10k.zsh
 
-# iTerm2 shell integration
-[ -f ${HOME}/.iterm2_shell_integration.zsh ] && source ${HOME}/.iterm2_shell_integration.zsh
+# Terminals
+[ -f $ZSH_CONFIG/terminals.zshrc ] && source $ZSH_CONFIG/terminals.zshrc
 
 # Local config
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local

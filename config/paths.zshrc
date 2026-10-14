@@ -52,7 +52,8 @@ path+=($GOBIN)
 # Terraform
 [ -d "$HOME/.tfenv/bin" ] && path=("$HOME/.tfenv/bin" $path)
 
-# Node (Node Version Manager, loaded lazily by the oh-my-zsh nvm plugin)
+# Node
+# nvm is loaded lazily by the oh-my-zsh nvm plugin
 export NVM_DIR="$HOME/.nvm"
 
 # DevKitPro
