@@ -4,10 +4,10 @@ alias ssh="ssh -A"
 which htop > /dev/null \
   && alias top=htop
 
-which lsd > /dev/null \
-  && alias ls=eza --header --bytes --group --modified --created --extended --git --icons
+which eza > /dev/null \
+  && alias ls='eza --header --bytes --group --modified --created --git --icons'
 
-which fs > /dev/null \
+which fd > /dev/null \
   && alias find=fd
 
 which ccat > /dev/null \
@@ -23,10 +23,10 @@ which docker > /dev/null \
   && alias d=docker
 
 which lazygit > /dev/null \
-  && alias lg=lazygit
+  && alias lzg=lazygit
 
 which lazydocker > /dev/null \
-  && alias ld=lazydocker
+  && alias lzd=lazydocker
 
 which kubectl > /dev/null \
   && alias k=kubectl

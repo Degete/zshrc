@@ -73,10 +73,15 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 
 # Load plugins configurations
-[ -f $ZSH_CONFIG/plugins/autoupdate.zshrc ] && source $ZSH_CONFIG/plugins/autoupdate.zshrc
 [ -f $ZSH_CONFIG/plugins/zsh-autosuggestions.zshrc ] && source $ZSH_CONFIG/plugins/zsh-autosuggestions.zshrc
 [ -f $ZSH_CONFIG/plugins/dotenv.zshrc ] && source $ZSH_CONFIG/plugins/dotenv.zshrc
 [ -f $ZSH_CONFIG/plugins/vimode.zshrc ] && source $ZSH_CONFIG/plugins/vimode.zshrc
+
+# Load nvm on first use of nvm, node, npm, etc.
+zstyle ':omz:plugins:nvm' lazy yes
+
+# zsh-completions must be added to fpath (not loaded as a plugin) before compinit runs
+fpath+=($ZSH_CUSTOM/plugins/zsh-completions/src)
 
 plugins=(
   # Functional plugins
@@ -85,8 +90,10 @@ plugins=(
   copypath
   dotenv
   iterm2
-  fzf
+  nvm
+  gcloud
   vi-mode
+  fzf # after vi-mode so its key bindings are kept
   zsh-interactive-cd
   z
 
@@ -106,9 +113,8 @@ plugins=(
   yarn
 
   # External plugins
-  zsh-syntax-highlighting
   zsh-autosuggestions
-  zsh-completions
+  zsh-syntax-highlighting # must be last
 )
 
 source $ZSH/oh-my-zsh.sh

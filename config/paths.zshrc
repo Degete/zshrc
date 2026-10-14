@@ -1,26 +1,45 @@
+# Keep PATH entries unique
+typeset -U path
+
 # Java
 # Create symlink
 # sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-export JAVA_HOME="`/usr/libexec/java_home`" # Add -v XX to set specific version
-export PATH="$JAVA_HOME/bin:$PATH"
+if JAVA_HOME="$(/usr/libexec/java_home 2> /dev/null)"; then # Add -v XX to set specific version
+  export JAVA_HOME
+  path=("$JAVA_HOME/bin" $path)
+else
+  unset JAVA_HOME
+fi
 
 # CURL
-export PATH="/usr/local/opt/curl/bin:$PATH"
+[ -d "/opt/homebrew/opt/curl/bin" ] && path=("/opt/homebrew/opt/curl/bin" $path)
 
 # PHP (Composer)
-export PATH="$HOME/.composer/vendor/bin:$PATH"
+[ -d "$HOME/.composer/vendor/bin" ] && path=("$HOME/.composer/vendor/bin" $path)
 
 # Android
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export ANDROID_SDK=$ANDROID_HOME
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+if [ -d "$HOME/Library/Android/sdk" ]; then
+  export ANDROID_HOME=$HOME/Library/Android/sdk
+  export ANDROID_SDK=$ANDROID_HOME
+  path+=(
+    $ANDROID_HOME/emulator
+    $ANDROID_HOME/tools
+    $ANDROID_HOME/tools/bin
+    $ANDROID_HOME/platform-tools
+  )
+fi
 
 # Ruby
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-eval "$(rbenv init - zsh)"
+[ -d "/opt/homebrew/opt/ruby/bin" ] && path=("/opt/homebrew/opt/ruby/bin" $path)
+if (( $+commands[rbenv] )); then
+  path=("${RBENV_ROOT:-$HOME/.rbenv}/shims" $path)
+  export RBENV_SHELL=zsh
+  rbenv() {
+    unfunction rbenv
+    eval "$(command rbenv init - zsh)"
+    rbenv "$@"
+  }
+fi
 
 # Rust
 [ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
@@ -28,26 +47,18 @@ eval "$(rbenv init - zsh)"
 # Golang
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
+path+=($GOBIN)
 
 # Terraform
-export PATH="$HOME/.tfenv/bin:$PATH"
+[ -d "$HOME/.tfenv/bin" ] && path=("$HOME/.tfenv/bin" $path)
 
-# Node (Node Version Manager)
+# Node (Node Version Manager, loaded lazily by the oh-my-zsh nvm plugin)
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-#eval "$(fnm env --use-on-cd)"
 
 # DevKitPro
-export DEVKITPRO=/opt/devkitpro
-export DEVKITARM=${DEVKITPRO}/devkitARM
-export DEVKITPPC=${DEVKITPRO}/devkitPPC
-export PATH=${DEVKITPRO}/tools/bin:$PATH
-
-# Google Cloud SDK
-[ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc ] && source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-[ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ] && source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -d "/opt/devkitpro" ]; then
+  export DEVKITPRO=/opt/devkitpro
+  export DEVKITARM=${DEVKITPRO}/devkitARM
+  export DEVKITPPC=${DEVKITPRO}/devkitPPC
+  path=(${DEVKITPRO}/tools/bin $path)
+fi

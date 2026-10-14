@@ -1,4 +1,2 @@
-# Disable prompt
-ZSH_DOTENV_PROMPT=false
-ZSH_DOTENV_ALLOWED_LIST=
-ZSH_DOTENV_DISALLOWED_LIST=
+# Ask before sourcing a .env file (answer [a]lways to trust a directory)
+ZSH_DOTENV_PROMPT=true
