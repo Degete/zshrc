@@ -3,7 +3,7 @@
   <img
     alt="terminal logo"
     src="./terminal.svg"
-    height="128"
+    height="128px"
     width="128px"
     align="left"
   />
@@ -20,7 +20,7 @@
 
 ```sh
 $ cd ~
-$ git clone --recurse-submodules --remote-submodules git@github.com:degete/zshrc.git ~/.zsh
+$ git clone git@github.com:degete/zshrc.git ~/.zsh
 
 $ ln -s .zsh/zshrc .zshrc
 $ ln -s .zsh/zshenv .zshenv

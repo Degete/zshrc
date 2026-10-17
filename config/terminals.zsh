@@ -1,0 +1,2 @@
+# iTerm2 shell integration (only inside iTerm2, also over ssh/tmux where LC_TERMINAL is forwarded)
+[[ $LC_TERMINAL == iTerm2 ]] && [ -f ${HOME}/.iterm2_shell_integration.zsh ] && source ${HOME}/.iterm2_shell_integration.zsh
