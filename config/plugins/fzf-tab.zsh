@@ -4,6 +4,8 @@
 zstyle ':completion:*:*:*:*:*' menu no
 # Group completions by their description
 zstyle ':completion:*:descriptions' format '[%d]'
+# Color files in completion lists like eza does (LS_COLORS from vivid, see general.zsh)
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # Keep git checkout branches in their natural (recent first) order
 zstyle ':completion:*:git-checkout:*' sort false
 # Switch between groups with < and >
