@@ -10,7 +10,7 @@ alias ssh="ssh -A"
 
 # Cli tools
 (( $+commands[htop] ))             && alias top=htop
-(( $+commands[eza] ))              && alias ls='eza --header --group --modified --created --git --icons'
+(( $+commands[eza] ))              && alias ls='eza --header --group --modified --created --git --icons=auto'
 (( $+commands[vim] ))              && alias v=vim
 (( $+commands[nvim] ))             && alias n=nvim
 (( $+commands[docker] ))           && alias d=docker

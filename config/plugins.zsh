@@ -46,7 +46,6 @@ zinit wait lucid for \
     OMZP::copybuffer \
     OMZP::copyfile \
     OMZP::copypath \
-    OMZP::git-auto-fetch \
     OMZP::iterm2 \
     MichaelAquilina/zsh-you-should-use
 # OMZ Plugins (Aliases)
@@ -81,23 +80,31 @@ zinit wait lucid for \
         OMZP::tmux
 
 # Completion and line editor plugins (order matters)
-# 1. zsh-completions must be in fpath before compinit
+# 1. zsh-completions and completion files (as"completion") must be in fpath before compinit.
+#    Terraform uses OMZ's static _terraform file instead of `complete -C terraform`, which would
+#    run the binary (a tenv shim) on every Tab
 # 2. compinit runs once, after all snippets above have registered their compdefs
 # 3. fzf-tab must load after compinit, but before plugins that wrap widgets
 # 4. fzf (Ctrl+R history, Ctrl+T files, Alt+C cd) right after fzf-tab, so `**<Tab>` goes to fzf
 #    and any other Tab falls back to fzf-tab
-# 5. gcloud completion (needs compinit; Homebrew already links gcloud into PATH, so the
-#    SDK's path.zsh.inc, which OMZP::gcloud sourced, isn't needed)
+# 5. Completions that call compdef/complete need compinit. zinit queues those calls while it loads
+#    a plugin, so plugins loaded after compinit need `zicdreplay` to apply them.
+#    gcloud: only its completion file (Homebrew already links gcloud into PATH, so the SDK's
+#    path.zsh.inc, which OMZP::gcloud sources, isn't needed)
 # 6. autosuggestions and syntax highlighting go last
 zinit wait lucid for \
     blockf \
         zsh-users/zsh-completions \
+    has"terraform" as"completion" \
+        OMZP::terraform/_terraform \
     atinit"_zinit_compinit; zicdreplay" \
     atload"source $ZSH_CONFIG/plugins/fzf-tab.zsh; source $ZSH_CONFIG/plugins/fzf.zsh" \
         Aloxaf/fzf-tab \
     has"gcloud" id-as"gcloud-completion" \
-    atload'source ${HOMEBREW_PREFIX:-/opt/homebrew}/share/google-cloud-sdk/completion.zsh.inc' \
+    atload'source $HOMEBREW_PREFIX/share/google-cloud-sdk/completion.zsh.inc' \
         zdharma-continuum/null \
+    has"tofu" atload"zicdreplay -q" \
+        OMZP::opentofu \
     atload"!_zsh_autosuggest_start" \
         zsh-users/zsh-autosuggestions \
         zdharma-continuum/fast-syntax-highlighting

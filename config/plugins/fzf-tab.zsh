@@ -12,7 +12,7 @@ zstyle ':fzf-tab:*' switch-group '<' '>'
 # Preview directories with eza and files with bat
 zstyle ':fzf-tab:complete:*:*' fzf-preview '
   if [[ -d $realpath ]]; then
-    eza -1 --color=always --icons $realpath 2>/dev/null || ls -1 $realpath
+    eza -1 --color=always --icons=always $realpath 2>/dev/null || ls -1 $realpath
   elif [[ -f $realpath ]]; then
     bat --color=always --style=numbers --line-range=:200 $realpath 2>/dev/null || head -200 $realpath
   fi'
