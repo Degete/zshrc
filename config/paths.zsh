@@ -1,5 +1,5 @@
-# Keep PATH entries unique
-typeset -U path
+# Keep PATH and completion search path entries unique; the first occurrence wins.
+typeset -U path PATH fpath FPATH
 
 # User binaries, appended so they don't shadow Homebrew versions
 [ -d "$HOME/.local/bin" ] && path+=("$HOME/.local/bin")

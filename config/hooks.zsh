@@ -6,7 +6,4 @@ elif (( $+commands[direnv] )); then
   eval "$(direnv hook zsh)"
 fi
 
-# zoxide: smarter cd (`z foo`, `zi` for an fzf picker), tracks directories through a chpwd hook
-if (( $+commands[zoxide] )); then
-  eval "$(zoxide init zsh)"
-fi
+# zoxide is loaded with the plugins (plugins.zsh), see its `z` completion there

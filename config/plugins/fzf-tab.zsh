@@ -8,6 +8,9 @@ zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':completion:*:git-checkout:*' sort false
 # Switch between groups with < and >
 zstyle ':fzf-tab:*' switch-group '<' '>'
+# Window size: half the screen (default fits the matches, so previews get cramped with few of them)
+# and the preview on the right half
+zstyle ':fzf-tab:*' fzf-flags '--height=50%' '--info=inline' '--preview-window=right:50%:wrap'
 
 # Preview directories with eza and files with bat
 zstyle ':fzf-tab:complete:*:*' fzf-preview '

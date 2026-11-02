@@ -1,3 +1,6 @@
+# Suggest from history first, then from completions (e.g. commands never typed before)
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
 pasteinit() {
